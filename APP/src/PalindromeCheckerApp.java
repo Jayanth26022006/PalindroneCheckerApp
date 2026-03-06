@@ -12,7 +12,7 @@ public class PalindromeCheckerApp {
         if (word.equals(reversedWord)) {
             System.out.println("The word \"" + word + "\" is a palindrome.");
         } else {
-            System.out.println("The word \"" + word + "\" is not a palindrome.");
+            System.out.println("The word \"" + word + "\" is not a palindromee.");
         }
     }
 }
