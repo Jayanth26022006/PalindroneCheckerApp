@@ -1,8 +1,12 @@
 import java.util.Scanner;
 
-public class PalindromeCheckerApp {
+// Service class encapsulating palindrome logic
+class PalindromeChecker {
 
-    public static boolean isPalindrome(String str) {
+    // Method to check palindrome
+    public boolean checkPalindrome(String input) {
+        // Normalize string: lowercase + remove non-alphanumeric characters
+        String str = input.toLowerCase().replaceAll("[^a-z0-9]", "");
 
         int start = 0;
         int end = str.length() - 1;
@@ -17,18 +21,20 @@ public class PalindromeCheckerApp {
 
         return true;
     }
+}
+
+// Main application class
+public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        PalindromeChecker checker = new PalindromeChecker();
 
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
-        // Normalize the string
-        String normalized = input.toLowerCase().replaceAll("[^a-z0-9]", "");
-
-        boolean result = isPalindrome(normalized);
+        boolean result = checker.checkPalindrome(input);
 
         if (result) {
             System.out.println("The string is a Palindrome.");
