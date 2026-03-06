@@ -23,15 +23,10 @@ class StackStrategy implements PalindromeStrategy {
 // Two-pointer iterative strategy
 class IterativeStrategy implements PalindromeStrategy {
 
-    @Override
-    public boolean isPalindrome(String input) {
-        String str = input.toLowerCase().replaceAll("[^a-z0-9]", "");
-        int start = 0;
-        int end = str.length() - 1;
-        while (start < end) {
-            if (str.charAt(start) != str.charAt(end)) return false;
-            start++;
-            end--;
+        if (word.equals(reversedWord)) {
+            System.out.println("The word \"" + word + "\" is a palindrome.");
+        } else {
+            System.out.println("The word \"" + word + "\" is not a palindromee.");
         }
         return true;
     }
