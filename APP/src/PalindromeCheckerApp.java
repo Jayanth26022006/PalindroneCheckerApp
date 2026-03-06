@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PalindromeCheckerApp {
+public class PalindromeCheckerApp{
 
     public static void main(String[] args) {
 
@@ -9,29 +9,28 @@ public class PalindromeCheckerApp {
         System.out.print("Enter a string: ");
         String input = sc.nextLine().toLowerCase();
 
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> deque = new ArrayDeque<>();
 
-        // Insert characters into Queue and Stack
+        // Insert characters into deque
         for (char c : input.toCharArray()) {
-            queue.add(c);     // Enqueue
-            stack.push(c);    // Push
+            deque.addLast(c);
         }
 
         boolean isPalindrome = true;
 
-        // Compare Queue and Stack
-        while (!queue.isEmpty()) {
-            char qChar = queue.remove();   // Dequeue
-            char sChar = stack.pop();      // Pop
+        // Compare front and rear
+        while (deque.size() > 1) {
 
-            if (qChar != sChar) {
+            char first = deque.removeFirst();
+            char last = deque.removeLast();
+
+            if (first != last) {
                 isPalindrome = false;
                 break;
             }
         }
 
-        // Result
+        // Display result
         if (isPalindrome) {
             System.out.println("The string is a Palindrome.");
         } else {
